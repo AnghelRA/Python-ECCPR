@@ -9,6 +9,8 @@ medii_finale_studenti =[]
 integralisti = []
 catalog = {}
 
+# Adaug studentii si mediile lor
+
 x = 0
 while x < numar_studenti:
 	nume_student = input()
@@ -19,6 +21,8 @@ while x < numar_studenti:
 	x += 1
 
 medii_studenti = [int(x) for y in medii_studenti for x in y]
+
+# Adaug intr-o lista mediile studentilor integralisti si elimin studenti picanti din lista
 
 x = 1
 y = 1
@@ -33,6 +37,7 @@ while x < len(medii_studenti):
 	x += 3
 	y += 2
 
+# Creez un dictionar care contine elevi integralisti si aflu care e elevul cu bursa de performanta
 
 x = 0
 while x < len(studenti):
@@ -40,6 +45,8 @@ while x < len(studenti):
 	x += 1
 
 medie_performanta = max(x for x in catalog.values())
+
+# Aflu numarul de studenti care pot primii burse de merit
 
 x = 0
 nr_burse_merit = 0
@@ -50,7 +57,6 @@ while x < len(medii_finale_studenti):
 		nr_burse_merit == nr_burse_merit
 			
 	x += 1
-
 
 if nr_burse_merit <= numar_burse_merit_disponibile:
 	print(nr_burse_merit-1)
