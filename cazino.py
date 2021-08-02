@@ -1,5 +1,6 @@
 n = input()
 maini_jucate = []
+carte = {}
 afisat = False
 
 # Creez o lista care contine mainile jucate
@@ -13,9 +14,13 @@ while x < int(n):
 # Verific daca exista o carte trucata si o afiseaza
 
 for x in maini_jucate:
-	carte = x
-	if maini_jucate.count(carte) >= 3 and afisat == False:
-		print(carte)
+	if x in carte:
+		carte[x] += 1
+	else:
+		carte[x] = 1
+
+	if carte[x] >= 3 and afisat == False:
+		print(x)
 		afisat = True
 
 # Daca nu exista carti trucate afiseaza JOC OK 
