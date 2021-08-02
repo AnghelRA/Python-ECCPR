@@ -1,2 +1,2 @@
 # Python-ECCPR
-ECCPR problems I solved to learn Python
+Probleme ECCPR pe care le-am rezolvat ca să învăț Python
