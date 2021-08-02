@@ -1,2 +1,2 @@
 # Python-ECCPR
-ECCPR problems I resolved to learn Python
+ECCPR problems I solved to learn Python
