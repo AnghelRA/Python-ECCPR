@@ -21,13 +21,18 @@ while x < numar_studenti:
 medii_studenti = [int(x) for y in medii_studenti for x in y]
 
 x = 1
+y = 1
 while x < len(medii_studenti):
 	if medii_studenti[x-1] > 5 and medii_studenti[x] > 5 and medii_studenti[x+1] > 5:
 		integralist = (medii_studenti[x-1] + medii_studenti[x] + medii_studenti[x+1])
 		integralisti.append(integralist)
 		medie_finala_student = integralist / 3
 		medii_finale_studenti.append(medie_finala_student)
+	else:
+		studenti.pop(x-y)
 	x += 3
+	y += 2
+
 
 x = 0
 while x < len(studenti):
@@ -39,16 +44,23 @@ medie_performanta = max(x for x in catalog.values())
 x = 0
 nr_burse_merit = 0
 while x < len(medii_finale_studenti):
-	if nr_burse_merit < numar_burse_merit_disponibile:
-		if medii_finale_studenti[x] > 8:
-			nr_burse_merit += 1
-		else:
-			nr_burse_merit == nr_burse_merit
+	if medii_finale_studenti[x] > 8:
+		nr_burse_merit += 1
 	else:
-		break
-x += 1
-print(medii_finale_studenti)
-print(nr_burse_merit)
-print({x:catalog[x] for x in catalog for x in catalog if catalog[x] == medie_performanta})
+		nr_burse_merit == nr_burse_merit
+			
+	x += 1
+
+
+if nr_burse_merit <= numar_burse_merit_disponibile:
+	print(nr_burse_merit-1)
+else:
+	print(numar_burse_merit_disponibile)
+elev_premiant = str({x:catalog[x] for x in catalog for x in catalog if catalog[x] == medie_performanta})
+elev_premiant = elev_premiant.replace(":", " ")
+elev_premiant = elev_premiant.replace("{", "")
+elev_premiant = elev_premiant.replace("}", "")
+elev_premiant = elev_premiant.replace("'", "")
+print(elev_premiant)
 
 # Timp rezolvare 64 min
