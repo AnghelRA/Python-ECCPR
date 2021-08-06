@@ -2,6 +2,7 @@ ora = input()
 n = input()
 x = 0
 lista_filme = []
+filme_aceeasi_ora = []
 
 ####################################################
 # Introduc filmele de la cinematograf intr-o lista
@@ -24,7 +25,7 @@ while x < len(lista_filme):
 	ore = ore.replace(":","")
 	lista_filme[x] = ore
 	x += 3
-                                                                     # 
+                                                                      
 ora = ora.replace(":","")
 lista_filme_disponibile = []
 x = 0
@@ -55,31 +56,36 @@ pret_minim = lista_filme_disponibile[1]
 #############################################################################################################
 
 while x < len(lista_filme_disponibile):
-	if int(minim) >= int(lista_filme_disponibile[x]):
-		minim = lista_filme_disponibile[x]
-		if int(minim) == int(lista_filme_disponibile[x]):
-			if int(pret_minim) >= int(lista_filme_disponibile[x+1]):
-				minim = lista_filme_disponibile[x]
-			else:
-				pret_minim = pret_minim
-		else:
-			minim = minim
-	else:
-		minim = minim
-	x += 3
+        if int(minim) >= int(lista_filme_disponibile[x]):
+                minim = lista_filme_disponibile[x]
+                
+        if int(minim) == int(lista_filme_disponibile[x]) and int(pret_minim) >= int(lista_filme_disponibile[x+1]):
+                pret_minim = lista_filme_disponibile[x+1]
+        x += 3
 
 x = 0
+while x < len(lista_filme_disponibile):
+        if int(lista_filme_disponibile[x]) == int(minim):
+               pret_minim = lista_filme_disponibile[x+1]
+        x += 3
+
+x = 0
+while x < len(lista_filme_disponibile):
+        if int(minim) == int(lista_filme_disponibile[x]) and int(pret_minim) >= int(lista_filme_disponibile[x+1]):
+               pret_minim = lista_filme_disponibile[x+1]
+        x += 3
 
 #######################################################################################################
 # Returneaza filmul care a se difuzeaza la cea mai apropiata ora de cea care am ajuns si e mai ieftin
 #######################################################################################################
 
+
+
+x = 0
 while x < len(lista_filme_disponibile):
-	if lista_filme_disponibile[x] == minim:
+	if lista_filme_disponibile[x] == minim and lista_filme_disponibile[x+1] == pret_minim:
 		cel_mai_recent_film = lista_filme_disponibile[x+2]
 		break
-	else:
-		x = x
 	x += 3
 
 print(cel_mai_recent_film)
