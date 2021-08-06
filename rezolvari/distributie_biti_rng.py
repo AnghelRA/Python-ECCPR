@@ -28,17 +28,20 @@ secventa.append(secventa3)
 secventa.append(secventa4)
 
 R1 = max(secventa)/min(secventa)
+R1 = '{0:.3}'.format(R1)
 
 # Calculez R2
 if cod_binar.count('1') >= cod_binar.count('0'):
 	R2 = cod_binar.count('1') / cod_binar.count('0')
+	R2 = '{0:.3}'.format(R2)
 else:
 	R2 = cod_binar.count('0') / cod_binar.count('1')
+	R2 = '{0:.3}'.format(R2)
 
 print(R1, R2)
 
 # Verific daca codul e random sau nu
-if R1 <= 1.1 and R2 <= 1.1:
+if float(R1) <= 1.1 and float(R2) <= 1.1:
 	print('1')
 else:
 	print('0')
