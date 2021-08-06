@@ -16,9 +16,16 @@ for x in aruncari:
 	zar = aruncari.count(x)
 	zaruri.append(zar)
 
-# Verific daca zarurile sunt masluite sau nu
+# Daca maxiimul de aparitii este egal cu minumul nu le mai scad
 
-if numar_aruncari // 10 <= max(zaruri)-min(zaruri):
+if max(zaruri) == min(zaruri):
+        verificare = max(zaruri)
+else:
+        verificare = max(zaruri)-min(zaruri)
+    
+# Verific daca zarurile sunt masluite sau nu)
+
+if numar_aruncari // 10 >= verificare:
 	print(0)
 else:
 	print(1)
